@@ -1,0 +1,14 @@
+git clone ./golden_monday zombie
+
+./bin/rake db:migrate db:migrate:status
+
+./bin/rails g model Zombie name:string description:text age:integer graveyard:text
+
+./bin/rails g model Weapon name:string description:text durability:integer weight:integer zombie_id:integer
+
+puts Zombie.instance_methods.grep /weapon/
+puts Weapon.instance_methods.grep /empty|find/
+
+zombie = Zombie.new
+Zombie.has_clothes :smelly_shirt
+
